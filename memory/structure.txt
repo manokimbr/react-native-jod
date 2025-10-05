@@ -1,0 +1,57 @@
+# Project Structure (React Native / Expo – ADD)
+Generated: 2025-10-05T18:35:42.203Z
+
+## Checks
+- Node: v22.18.0
+- Expo (dependency): ~54.0.12
+- RN: 0.81.4
+- three: not found
+- expo-gl: not found
+- expo-three: not found
+- @react-three/fiber: not found
+- app.json: yes
+- app.config.js: no
+- tsconfig.json: yes
+- metro.config.js: no
+
+### 3D Import Hits
+files: 0
+- expo-gl: 0
+- expo-three: 0
+- three: 0
+
+### Warnings
+- ⚠️ No expo-gl/@react-three/fiber found: 3D pipeline not detected.
+
+## Tree
+📁 REACT-NATIVE
+├─ 📄 package.json .json (532B)
+├─ 📄 package-lock.json .json (339.9KB)
+├─ 📄 .gitignore (459B)
+├─ 📄 README.md .md (19B)
+├─ 📁 src
+├─ └─ 📁 shared
+├─ └─ └─ 📁 dev
+├─ └─ └─ └─ 📄 DevPanel.tsx .tsx (564B)
+├─ 📁 memory (dim)
+├─ ├─ 📄 structure.txt .txt (1.6KB)
+├─ └─ 📄 structure.json .json (6.1KB)
+├─ 📄 index.ts .ts (307B)
+├─ 📄 tsconfig.json .json (85B)
+├─ 📁 assets
+├─ ├─ 📄 adaptive-icon.png .png (17.1KB)
+├─ ├─ 📄 icon.png .png (21.9KB)
+├─ ├─ 📄 splash-icon.png .png (17.1KB)
+├─ └─ 📄 favicon.png .png (1.4KB)
+├─ 📄 App.tsx .tsx (526B)
+├─ 📁 ADD
+├─ ├─ 📄 package.json .json (24B)
+├─ ├─ 📄 run.js .js (870B)
+├─ ├─ 📁 memory
+├─ ├─ 📄 add.config.json .json (230B)
+├─ └─ 📁 lib
+├─ └─ ├─ 📄 treeText.js .js (1.1KB)
+├─ └─ ├─ 📄 writers.js .js (2.1KB)
+├─ └─ ├─ 📄 checks.js .js (3.3KB)
+├─ └─ └─ 📄 scanFs.js .js (1.4KB)
+└─ 📄 app.json .json (695B)

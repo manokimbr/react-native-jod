@@ -1,0 +1,15 @@
+{
+  "root": ".",
+  "memoryDir": "./memory",
+  "includeDirs": ["app", "src", "assets", "ADD"],
+  "ignore": [
+    "node_modules",
+    ".git",
+    ".expo",
+    "dist",
+    "build",
+    "android",
+    "ios"
+  ],
+  "maxFileKB": 1024
+}

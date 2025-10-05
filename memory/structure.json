@@ -1,0 +1,270 @@
+{
+  "generatedAt": "2025-10-05T18:35:42.201Z",
+  "summary": {
+    "files": 22,
+    "dirs": 9,
+    "sizeBytes": 427244
+  },
+  "checks": {
+    "env": {
+      "node": "v22.18.0"
+    },
+    "expo": {
+      "version": "~54.0.12"
+    },
+    "deps": {
+      "react": "19.1.0",
+      "react-native": "0.81.4",
+      "expo-gl": null,
+      "expo-three": null,
+      "three": null,
+      "three-stdlib": null,
+      "@react-three/fiber": null
+    },
+    "files": {
+      "packageJson": true,
+      "appJson": true,
+      "appConfigJs": false,
+      "tsconfig": true,
+      "metro": false
+    },
+    "rn3D": {
+      "imports": {
+        "files": [],
+        "hits": {
+          "expo-gl": 0,
+          "expo-three": 0,
+          "three": 0
+        }
+      }
+    },
+    "warnings": [
+      "No expo-gl/@react-three/fiber found: 3D pipeline not detected."
+    ]
+  },
+  "tree": {
+    "type": "dir",
+    "name": "REACT-NATIVE",
+    "path": ".",
+    "interesting": true,
+    "children": [
+      {
+        "type": "file",
+        "name": "package.json",
+        "path": "package.json",
+        "ext": "json",
+        "size": 532
+      },
+      {
+        "type": "file",
+        "name": "package-lock.json",
+        "path": "package-lock.json",
+        "ext": "json",
+        "size": 348091
+      },
+      {
+        "type": "file",
+        "name": ".gitignore",
+        "path": ".gitignore",
+        "ext": "",
+        "size": 459
+      },
+      {
+        "type": "file",
+        "name": "README.md",
+        "path": "README.md",
+        "ext": "md",
+        "size": 19
+      },
+      {
+        "type": "dir",
+        "name": "src",
+        "path": "src",
+        "interesting": true,
+        "children": [
+          {
+            "type": "dir",
+            "name": "shared",
+            "path": "src/shared",
+            "interesting": true,
+            "children": [
+              {
+                "type": "dir",
+                "name": "dev",
+                "path": "src/shared/dev",
+                "interesting": true,
+                "children": [
+                  {
+                    "type": "file",
+                    "name": "DevPanel.tsx",
+                    "path": "src/shared/dev/DevPanel.tsx",
+                    "ext": "tsx",
+                    "size": 564
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "dir",
+        "name": "memory",
+        "path": "memory",
+        "interesting": false,
+        "children": [
+          {
+            "type": "file",
+            "name": "structure.txt",
+            "path": "memory/structure.txt",
+            "ext": "txt",
+            "size": 1638
+          },
+          {
+            "type": "file",
+            "name": "structure.json",
+            "path": "memory/structure.json",
+            "ext": "json",
+            "size": 6216
+          }
+        ]
+      },
+      {
+        "type": "file",
+        "name": "index.ts",
+        "path": "index.ts",
+        "ext": "ts",
+        "size": 307
+      },
+      {
+        "type": "file",
+        "name": "tsconfig.json",
+        "path": "tsconfig.json",
+        "ext": "json",
+        "size": 85
+      },
+      {
+        "type": "dir",
+        "name": "assets",
+        "path": "assets",
+        "interesting": true,
+        "children": [
+          {
+            "type": "file",
+            "name": "adaptive-icon.png",
+            "path": "assets/adaptive-icon.png",
+            "ext": "png",
+            "size": 17547
+          },
+          {
+            "type": "file",
+            "name": "icon.png",
+            "path": "assets/icon.png",
+            "ext": "png",
+            "size": 22380
+          },
+          {
+            "type": "file",
+            "name": "splash-icon.png",
+            "path": "assets/splash-icon.png",
+            "ext": "png",
+            "size": 17547
+          },
+          {
+            "type": "file",
+            "name": "favicon.png",
+            "path": "assets/favicon.png",
+            "ext": "png",
+            "size": 1466
+          }
+        ]
+      },
+      {
+        "type": "file",
+        "name": "App.tsx",
+        "path": "App.tsx",
+        "ext": "tsx",
+        "size": 526
+      },
+      {
+        "type": "dir",
+        "name": "ADD",
+        "path": "ADD",
+        "interesting": true,
+        "children": [
+          {
+            "type": "file",
+            "name": "package.json",
+            "path": "ADD/package.json",
+            "ext": "json",
+            "size": 24
+          },
+          {
+            "type": "file",
+            "name": "run.js",
+            "path": "ADD/run.js",
+            "ext": "js",
+            "size": 870
+          },
+          {
+            "type": "dir",
+            "name": "memory",
+            "path": "ADD/memory",
+            "interesting": true,
+            "children": []
+          },
+          {
+            "type": "file",
+            "name": "add.config.json",
+            "path": "ADD/add.config.json",
+            "ext": "json",
+            "size": 230
+          },
+          {
+            "type": "dir",
+            "name": "lib",
+            "path": "ADD/lib",
+            "interesting": true,
+            "children": [
+              {
+                "type": "file",
+                "name": "treeText.js",
+                "path": "ADD/lib/treeText.js",
+                "ext": "js",
+                "size": 1101
+              },
+              {
+                "type": "file",
+                "name": "writers.js",
+                "path": "ADD/lib/writers.js",
+                "ext": "js",
+                "size": 2187
+              },
+              {
+                "type": "file",
+                "name": "checks.js",
+                "path": "ADD/lib/checks.js",
+                "ext": "js",
+                "size": 3349
+              },
+              {
+                "type": "file",
+                "name": "scanFs.js",
+                "path": "ADD/lib/scanFs.js",
+                "ext": "js",
+                "size": 1411
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "file",
+        "name": "app.json",
+        "path": "app.json",
+        "ext": "json",
+        "size": 695
+      }
+    ]
+  }
+}
