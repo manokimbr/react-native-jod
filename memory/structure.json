@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2025-10-05T18:35:42.201Z",
+  "generatedAt": "2025-10-05T23:42:00.435Z",
   "summary": {
-    "files": 22,
-    "dirs": 9,
-    "sizeBytes": 427244
+    "files": 42,
+    "dirs": 15,
+    "sizeBytes": 459647
   },
   "checks": {
     "env": {
@@ -15,9 +15,9 @@
     "deps": {
       "react": "19.1.0",
       "react-native": "0.81.4",
-      "expo-gl": null,
+      "expo-gl": "^16.0.7",
       "expo-three": null,
-      "three": null,
+      "three": "0.180.0",
       "three-stdlib": null,
       "@react-three/fiber": null
     },
@@ -26,7 +26,8 @@
       "appJson": true,
       "appConfigJs": false,
       "tsconfig": true,
-      "metro": false
+      "metro": false,
+      "appTsx": true
     },
     "rn3D": {
       "imports": {
@@ -39,7 +40,7 @@
       }
     },
     "warnings": [
-      "No expo-gl/@react-three/fiber found: 3D pipeline not detected."
+      "React Native version may be outdated for Expo SDK 54+."
     ]
   },
   "tree": {
@@ -53,14 +54,14 @@
         "name": "package.json",
         "path": "package.json",
         "ext": "json",
-        "size": 532
+        "size": 679
       },
       {
         "type": "file",
         "name": "package-lock.json",
         "path": "package-lock.json",
         "ext": "json",
-        "size": 348091
+        "size": 356450
       },
       {
         "type": "file",
@@ -84,6 +85,188 @@
         "children": [
           {
             "type": "dir",
+            "name": "store",
+            "path": "src/store",
+            "interesting": true,
+            "children": [
+              {
+                "type": "file",
+                "name": "appStore.ts",
+                "path": "src/store/appStore.ts",
+                "ext": "ts",
+                "size": 1152
+              },
+              {
+                "type": "file",
+                "name": "nanoStore.ts",
+                "path": "src/store/nanoStore.ts",
+                "ext": "ts",
+                "size": 1547
+              }
+            ]
+          },
+          {
+            "type": "dir",
+            "name": "app",
+            "path": "src/app",
+            "interesting": true,
+            "children": [
+              {
+                "type": "file",
+                "name": "AppRoot.tsx",
+                "path": "src/app/AppRoot.tsx",
+                "ext": "tsx",
+                "size": 1013
+              },
+              {
+                "type": "file",
+                "name": "routes.ts",
+                "path": "src/app/routes.ts",
+                "ext": "ts",
+                "size": 342
+              },
+              {
+                "type": "file",
+                "name": "AppLayout.tsx",
+                "path": "src/app/AppLayout.tsx",
+                "ext": "tsx",
+                "size": 2856
+              }
+            ]
+          },
+          {
+            "type": "dir",
+            "name": "pages",
+            "path": "src/pages",
+            "interesting": true,
+            "children": [
+              {
+                "type": "file",
+                "name": "SettingsPage.tsx",
+                "path": "src/pages/SettingsPage.tsx",
+                "ext": "tsx",
+                "size": 589
+              },
+              {
+                "type": "file",
+                "name": "HomePage.tsx",
+                "path": "src/pages/HomePage.tsx",
+                "ext": "tsx",
+                "size": 669
+              }
+            ]
+          },
+          {
+            "type": "dir",
+            "name": "components",
+            "path": "src/components",
+            "interesting": true,
+            "children": [
+              {
+                "type": "dir",
+                "name": "nav",
+                "path": "src/components/nav",
+                "interesting": true,
+                "children": [
+                  {
+                    "type": "file",
+                    "name": "MenuItem.tsx",
+                    "path": "src/components/nav/MenuItem.tsx",
+                    "ext": "tsx",
+                    "size": 931
+                  },
+                  {
+                    "type": "file",
+                    "name": "SideDrawer.tsx",
+                    "path": "src/components/nav/SideDrawer.tsx",
+                    "ext": "tsx",
+                    "size": 2227
+                  }
+                ]
+              },
+              {
+                "type": "dir",
+                "name": "blocks",
+                "path": "src/components/blocks",
+                "interesting": true,
+                "children": [
+                  {
+                    "type": "file",
+                    "name": "ProfileHeader.tsx",
+                    "path": "src/components/blocks/ProfileHeader.tsx",
+                    "ext": "tsx",
+                    "size": 893
+                  },
+                  {
+                    "type": "file",
+                    "name": "StatGrid.tsx",
+                    "path": "src/components/blocks/StatGrid.tsx",
+                    "ext": "tsx",
+                    "size": 648
+                  }
+                ]
+              },
+              {
+                "type": "dir",
+                "name": "ui",
+                "path": "src/components/ui",
+                "interesting": true,
+                "children": [
+                  {
+                    "type": "file",
+                    "name": "Divider.tsx",
+                    "path": "src/components/ui/Divider.tsx",
+                    "ext": "tsx",
+                    "size": 194
+                  },
+                  {
+                    "type": "file",
+                    "name": "Card.tsx",
+                    "path": "src/components/ui/Card.tsx",
+                    "ext": "tsx",
+                    "size": 541
+                  },
+                  {
+                    "type": "file",
+                    "name": "AppBarIcon.tsx",
+                    "path": "src/components/ui/AppBarIcon.tsx",
+                    "ext": "tsx",
+                    "size": 992
+                  },
+                  {
+                    "type": "file",
+                    "name": "Spacer.tsx",
+                    "path": "src/components/ui/Spacer.tsx",
+                    "ext": "tsx",
+                    "size": 263
+                  },
+                  {
+                    "type": "file",
+                    "name": "MetricBadge.tsx",
+                    "path": "src/components/ui/MetricBadge.tsx",
+                    "ext": "tsx",
+                    "size": 807
+                  },
+                  {
+                    "type": "file",
+                    "name": "AppBar.tsx",
+                    "path": "src/components/ui/AppBar.tsx",
+                    "ext": "tsx",
+                    "size": 2094
+                  },
+                  {
+                    "type": "file",
+                    "name": "Button.tsx",
+                    "path": "src/components/ui/Button.tsx",
+                    "ext": "tsx",
+                    "size": 1320
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "dir",
             "name": "shared",
             "path": "src/shared",
             "interesting": true,
@@ -100,6 +283,20 @@
                     "path": "src/shared/dev/DevPanel.tsx",
                     "ext": "tsx",
                     "size": 564
+                  },
+                  {
+                    "type": "file",
+                    "name": "debugGlobalStateButton.tsx",
+                    "path": "src/shared/dev/debugGlobalStateButton.tsx",
+                    "ext": "tsx",
+                    "size": 2079
+                  },
+                  {
+                    "type": "file",
+                    "name": "GlobalStatePanel.tsx",
+                    "path": "src/shared/dev/GlobalStatePanel.tsx",
+                    "ext": "tsx",
+                    "size": 1896
                   }
                 ]
               }
@@ -118,14 +315,14 @@
             "name": "structure.txt",
             "path": "memory/structure.txt",
             "ext": "txt",
-            "size": 1638
+            "size": 1601
           },
           {
             "type": "file",
             "name": "structure.json",
             "path": "memory/structure.json",
             "ext": "json",
-            "size": 6216
+            "size": 6065
           }
         ]
       },
@@ -141,7 +338,7 @@
         "name": "tsconfig.json",
         "path": "tsconfig.json",
         "ext": "json",
-        "size": 85
+        "size": 366
       },
       {
         "type": "dir",
@@ -184,7 +381,7 @@
         "name": "App.tsx",
         "path": "App.tsx",
         "ext": "tsx",
-        "size": 526
+        "size": 449
       },
       {
         "type": "dir",
@@ -205,13 +402,6 @@
             "path": "ADD/run.js",
             "ext": "js",
             "size": 870
-          },
-          {
-            "type": "dir",
-            "name": "memory",
-            "path": "ADD/memory",
-            "interesting": true,
-            "children": []
           },
           {
             "type": "file",
@@ -245,7 +435,7 @@
                 "name": "checks.js",
                 "path": "ADD/lib/checks.js",
                 "ext": "js",
-                "size": 3349
+                "size": 4177
               },
               {
                 "type": "file",

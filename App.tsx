@@ -1,24 +1,18 @@
+// App.tsx
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
-import DevPanel from './src/shared/dev/DevPanel';
-
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
+import AppRoot from './src/app/AppRoot';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <DevPanel />
-      <StatusBar style="auto" />
+    <View style={styles.root}>
+      <StatusBar style="dark" translucent backgroundColor="transparent" />
+      <AppRoot />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  root: { flex: 1, backgroundColor: '#fafafa' },
 });

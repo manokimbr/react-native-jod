@@ -1,14 +1,8 @@
-// Expo/React Native focused checks.
+// Expo / React Native focused checks (lean edition)
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 
 export async function runChecks(projectRoot) {
-  const pkgPath = path.join(projectRoot, 'package.json')
-  const tsPath  = path.join(projectRoot, 'tsconfig.json')
-  const appJson = path.join(projectRoot, 'app.json')
-  const appCfg  = path.join(projectRoot, 'app.config.js')
-  const metro   = path.join(projectRoot, 'metro.config.js')
-
   const res = {
     env: { node: process.version },
     expo: {},
@@ -18,54 +12,79 @@ export async function runChecks(projectRoot) {
     warnings: []
   }
 
-  // package.json
+  const pkgPath = path.join(projectRoot, 'package.json')
+  const tsPath  = path.join(projectRoot, 'tsconfig.json')
+  const appJson = path.join(projectRoot, 'app.json')
+  const appCfg  = path.join(projectRoot, 'app.config.js')
+  const metro   = path.join(projectRoot, 'metro.config.js')
+
+  // --- package.json
   try {
     const pkg = JSON.parse(await fs.readFile(pkgPath, 'utf8'))
     res.files.packageJson = true
     const deps = { ...(pkg.dependencies || {}), ...(pkg.devDependencies || {}) }
 
-    // Expo SDK (derived from expo version)
     res.expo.version = deps.expo || null
+    Object.assign(res.deps, {
+      react: deps.react || null,
+      'react-native': deps['react-native'] || null,
+      'expo-gl': deps['expo-gl'] || null,
+      'expo-three': deps['expo-three'] || null,
+      three: deps.three || null,
+      'three-stdlib': deps['three-stdlib'] || null,
+      '@react-three/fiber': deps['@react-three/fiber'] || null
+    })
 
-    // Core deps
-    res.deps.react = deps.react || null
-    res.deps['react-native'] = deps['react-native'] || null
-    res.deps['expo-gl'] = deps['expo-gl'] || null
-    res.deps['expo-three'] = deps['expo-three'] || null
-    res.deps.three = deps.three || null
-    res.deps['three-stdlib'] = deps['three-stdlib'] || null
-    res.deps['@react-three/fiber'] = deps['@react-three/fiber'] || null
-
-    if (!deps['expo-gl'] && !deps['@react-three/fiber']) {
-      res.warnings.push('No expo-gl/@react-three/fiber found: 3D pipeline not detected.')
+    // quick Expo SDK mismatch check
+    if (res.expo.version && res.deps['react-native']) {
+      const rnMajor = res.deps['react-native'].match(/\d+/)?.[0]
+      if (Number(rnMajor) < 80) res.warnings.push('React Native version may be outdated for Expo SDK 54+.')
     }
   } catch {
     res.warnings.push('package.json not found or unreadable.')
   }
 
-  // app.json / app.config.js
+  // --- core config files
   res.files.appJson = await exists(appJson)
   res.files.appConfigJs = await exists(appCfg)
-
-  // tsconfig
   res.files.tsconfig = await exists(tsPath)
-
-  // metro config
   res.files.metro = await exists(metro)
+  res.files.appTsx = await exists(path.join(projectRoot, 'App.tsx'))
 
-  // quick scan for GL/Three usage in source
+  // --- 3D imports check
   const glHits = await findImports(projectRoot, ['expo-gl', 'expo-three', 'three'])
   res.rn3D.imports = glHits
+
+  // --- derive 3D readiness
+  const ready3D = !!(res.deps['expo-gl'] && res.deps.three)
+  if (!ready3D)
+    res.warnings.push('3D pipeline not fully ready (need expo-gl + three).')
+
+  // flag unused helpers
+  if (res.deps['expo-three'] && glHits.hits['expo-three'] === 0)
+    res.warnings.push('expo-three installed but never imported.')
+  if (res.deps['three-stdlib'] && glHits.hits['three-stdlib'] === 0)
+    res.warnings.push('three-stdlib installed but never imported.')
+
+  // optional tsconfig inspection (strict mode)
+  if (res.files.tsconfig) {
+    try {
+      const tsCfg = JSON.parse(await fs.readFile(tsPath, 'utf8'))
+      if (tsCfg.compilerOptions && tsCfg.compilerOptions.strict !== true)
+        res.warnings.push('tsconfig strict mode disabled.')
+    } catch {}
+  }
 
   return res
 }
 
+// --------------------------------------------------------
 async function exists(p) {
   try { await fs.access(p); return true } catch { return false }
 }
 
+// lightweight recursive search
 async function findImports(root, pkgs) {
-  // lightweight grep over app/src for import hits
   const out = { files: [], hits: {} }
   for (const p of pkgs) out.hits[p] = 0
 
@@ -76,8 +95,7 @@ async function findImports(root, pkgs) {
       if (e.isDirectory()) {
         if (['node_modules', '.git', '.expo', 'android', 'ios'].includes(e.name)) continue
         await scan(full)
-      } else if (e.isFile()) {
-        if (!/\.(t|j)sx?$/.test(e.name)) continue
+      } else if (e.isFile() && /\.(t|j)sx?$/.test(e.name)) {
         const txt = await fs.readFile(full, 'utf8')
         let matched = false
         for (const p of pkgs) {
@@ -93,7 +111,6 @@ async function findImports(root, pkgs) {
     }
   }
 
-  // prefer scanning app/ and src/ if present
   const targets = []
   for (const d of ['app', 'src']) {
     try {

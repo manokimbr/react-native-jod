@@ -1,12 +1,12 @@
 # Project Structure (React Native / Expo – ADD)
-Generated: 2025-10-05T18:35:42.203Z
+Generated: 2025-10-05T23:42:00.436Z
 
 ## Checks
 - Node: v22.18.0
 - Expo (dependency): ~54.0.12
 - RN: 0.81.4
-- three: not found
-- expo-gl: not found
+- three: 0.180.0
+- expo-gl: ^16.0.7
 - expo-three: not found
 - @react-three/fiber: not found
 - app.json: yes
@@ -21,37 +21,63 @@ files: 0
 - three: 0
 
 ### Warnings
-- ⚠️ No expo-gl/@react-three/fiber found: 3D pipeline not detected.
+- ⚠️ React Native version may be outdated for Expo SDK 54+.
 
 ## Tree
 📁 REACT-NATIVE
-├─ 📄 package.json .json (532B)
-├─ 📄 package-lock.json .json (339.9KB)
+├─ 📄 package.json .json (679B)
+├─ 📄 package-lock.json .json (348.1KB)
 ├─ 📄 .gitignore (459B)
 ├─ 📄 README.md .md (19B)
 ├─ 📁 src
+├─ ├─ 📁 store
+├─ ├─ ├─ 📄 appStore.ts .ts (1.1KB)
+├─ ├─ └─ 📄 nanoStore.ts .ts (1.5KB)
+├─ ├─ 📁 app
+├─ ├─ ├─ 📄 AppRoot.tsx .tsx (1013B)
+├─ ├─ ├─ 📄 routes.ts .ts (342B)
+├─ ├─ └─ 📄 AppLayout.tsx .tsx (2.8KB)
+├─ ├─ 📁 pages
+├─ ├─ ├─ 📄 SettingsPage.tsx .tsx (589B)
+├─ ├─ └─ 📄 HomePage.tsx .tsx (669B)
+├─ ├─ 📁 components
+├─ ├─ ├─ 📁 nav
+├─ ├─ ├─ ├─ 📄 MenuItem.tsx .tsx (931B)
+├─ ├─ ├─ └─ 📄 SideDrawer.tsx .tsx (2.2KB)
+├─ ├─ ├─ 📁 blocks
+├─ ├─ ├─ ├─ 📄 ProfileHeader.tsx .tsx (893B)
+├─ ├─ ├─ └─ 📄 StatGrid.tsx .tsx (648B)
+├─ ├─ └─ 📁 ui
+├─ ├─ └─ ├─ 📄 Divider.tsx .tsx (194B)
+├─ ├─ └─ ├─ 📄 Card.tsx .tsx (541B)
+├─ ├─ └─ ├─ 📄 AppBarIcon.tsx .tsx (992B)
+├─ ├─ └─ ├─ 📄 Spacer.tsx .tsx (263B)
+├─ ├─ └─ ├─ 📄 MetricBadge.tsx .tsx (807B)
+├─ ├─ └─ ├─ 📄 AppBar.tsx .tsx (2.0KB)
+├─ ├─ └─ └─ 📄 Button.tsx .tsx (1.3KB)
 ├─ └─ 📁 shared
 ├─ └─ └─ 📁 dev
-├─ └─ └─ └─ 📄 DevPanel.tsx .tsx (564B)
+├─ └─ └─ ├─ 📄 DevPanel.tsx .tsx (564B)
+├─ └─ └─ ├─ 📄 debugGlobalStateButton.tsx .tsx (2.0KB)
+├─ └─ └─ └─ 📄 GlobalStatePanel.tsx .tsx (1.9KB)
 ├─ 📁 memory (dim)
 ├─ ├─ 📄 structure.txt .txt (1.6KB)
-├─ └─ 📄 structure.json .json (6.1KB)
+├─ └─ 📄 structure.json .json (5.9KB)
 ├─ 📄 index.ts .ts (307B)
-├─ 📄 tsconfig.json .json (85B)
+├─ 📄 tsconfig.json .json (366B)
 ├─ 📁 assets
 ├─ ├─ 📄 adaptive-icon.png .png (17.1KB)
 ├─ ├─ 📄 icon.png .png (21.9KB)
 ├─ ├─ 📄 splash-icon.png .png (17.1KB)
 ├─ └─ 📄 favicon.png .png (1.4KB)
-├─ 📄 App.tsx .tsx (526B)
+├─ 📄 App.tsx .tsx (449B)
 ├─ 📁 ADD
 ├─ ├─ 📄 package.json .json (24B)
 ├─ ├─ 📄 run.js .js (870B)
-├─ ├─ 📁 memory
 ├─ ├─ 📄 add.config.json .json (230B)
 ├─ └─ 📁 lib
 ├─ └─ ├─ 📄 treeText.js .js (1.1KB)
 ├─ └─ ├─ 📄 writers.js .js (2.1KB)
-├─ └─ ├─ 📄 checks.js .js (3.3KB)
+├─ └─ ├─ 📄 checks.js .js (4.1KB)
 ├─ └─ └─ 📄 scanFs.js .js (1.4KB)
 └─ 📄 app.json .json (695B)
