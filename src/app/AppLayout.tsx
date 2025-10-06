@@ -1,4 +1,3 @@
-// src/app/AppLayout.tsx
 import React, { ReactNode, useState } from 'react';
 import {
   StyleSheet,
@@ -13,7 +12,7 @@ import AppBar from '../components/ui/AppBar';
 import AppBarIcon from '../components/ui/AppBarIcon';
 import SideDrawer from '../components/nav/SideDrawer';
 import MenuItem from '../components/nav/MenuItem';
-import { AppActions, useDevMode } from '../store/appStore'; // ✅ store integration
+import { AppActions, useDevMode } from '../store/appStore';
 import type { AppRoute } from './routes';
 
 type Props = {
@@ -23,7 +22,6 @@ type Props = {
   children: ReactNode;
 };
 
-// Manual safe insets (no deps)
 function useApproxInsets() {
   const { width, height } = useWindowDimensions();
   const isIOS = Platform.OS === 'ios';
@@ -36,9 +34,10 @@ function useApproxInsets() {
 
 export default function AppLayout({ route, routes, onNavigate, children }: Props) {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [pendingNavKey, setPendingNavKey] = useState<AppRoute['key'] | null>(null);
   const insets = useApproxInsets();
 
-  const devMode = useDevMode(); // subscribe to devMode only
+  const devMode = useDevMode();
 
   return (
     <View style={styles.root}>
@@ -51,7 +50,6 @@ export default function AppLayout({ route, routes, onNavigate, children }: Props
             label="⚙"
             size={26}
             onPress={() => {
-              // Toggle dev mode via global store
               AppActions.toggleDevMode();
               console.log(`[DEV] mode toggled → ${!devMode}`);
             }}
@@ -66,7 +64,20 @@ export default function AppLayout({ route, routes, onNavigate, children }: Props
       </View>
 
       {/* Drawer LAST so it overlays AppBar */}
-      <SideDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+      <SideDrawer
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        onDidClose={() => {
+          // If a nav choice was made while the drawer was open,
+          // run it only after the close animation fully completes.
+          if (pendingNavKey) {
+            const key = pendingNavKey;
+            setPendingNavKey(null);
+            console.log(`[NAV] navigating to "${key}" after drawer close ✓`);
+            onNavigate(key);
+          }
+        }}
+      >
         <View style={{ paddingTop: insets.top, paddingBottom: insets.bottom }}>
           <Text style={styles.menuTitle}>Navigation</Text>
           {routes.map((r) => (
@@ -75,8 +86,10 @@ export default function AppLayout({ route, routes, onNavigate, children }: Props
               label={r.label}
               hint={r.hint}
               onPress={() => {
+                // Queue navigation and close the drawer.
+                // Navigation will run in SideDrawer.onDidClose.
+                setPendingNavKey(r.key);
                 setDrawerOpen(false);
-                onNavigate(r.key);
               }}
             />
           ))}
