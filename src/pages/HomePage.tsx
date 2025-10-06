@@ -4,6 +4,7 @@ import { Text } from 'react-native';
 import DevPanel from '../shared/dev/DevPanel';
 import GlobalStatePanel from '../shared/dev/GlobalStatePanel';
 import DebugGlobalStateButton from '../shared/dev/debugGlobalStateButton';
+import DebugApiButton from '../shared/dev/DebugApiButton';
 
 export default function HomePage() {
   return (
@@ -13,6 +14,7 @@ export default function HomePage() {
       </Text>
       <DevPanel />
       <GlobalStatePanel />
+      <DebugApiButton />
 
       <DebugGlobalStateButton
         label="Dev Mode"
