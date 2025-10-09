@@ -1,10 +1,12 @@
 // src/pages/SettingsPage.tsx
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
+import ThreeDebug from '../shared/dev/ThreeDebug';
 
 export default function SettingsPage() {
   return (
     <View style={styles.box}>
+      <ThreeDebug />
       <Text style={styles.h1}>Settings</Text>
       <Text style={styles.p}>(stub) Configure preferences here.</Text>
     </View>

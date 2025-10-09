@@ -12,7 +12,9 @@ export const EMULATOR_HOST = Platform.OS === 'android' ? '10.0.2.2' : 'localhost
 export const HOST = LAN_HOST;                          // real phone on same Wi-Fi
 
 // ====== Derived constants ======
-export const BASE_URL = `http://${HOST}:${PORT}`;
+// export const BASE_URL = `http://${HOST}:${PORT}`;
+export const BASE_URL = `https://node-jod.onrender.com`;
+
 export const PING_PATH = '/api/ping';
 export const PING_URL = `${BASE_URL}${PING_PATH}`;
 

@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2025-10-05T23:42:00.435Z",
+  "generatedAt": "2025-10-09T17:33:30.605Z",
   "summary": {
-    "files": 42,
-    "dirs": 15,
-    "sizeBytes": 459647
+    "files": 49,
+    "dirs": 19,
+    "sizeBytes": 501355
   },
   "checks": {
     "env": {
@@ -31,11 +31,13 @@
     },
     "rn3D": {
       "imports": {
-        "files": [],
+        "files": [
+          "src/shared/dev/ThreeDebug.tsx"
+        ],
         "hits": {
-          "expo-gl": 0,
+          "expo-gl": 2,
           "expo-three": 0,
-          "three": 0
+          "three": 1
         }
       }
     },
@@ -54,14 +56,21 @@
         "name": "package.json",
         "path": "package.json",
         "ext": "json",
-        "size": 679
+        "size": 711
       },
       {
         "type": "file",
         "name": "package-lock.json",
         "path": "package-lock.json",
         "ext": "json",
-        "size": 356450
+        "size": 359308
+      },
+      {
+        "type": "file",
+        "name": "App-three.tsx",
+        "path": "App-three.tsx",
+        "ext": "tsx",
+        "size": 4395
       },
       {
         "type": "file",
@@ -102,6 +111,66 @@
                 "path": "src/store/nanoStore.ts",
                 "ext": "ts",
                 "size": 1547
+              },
+              {
+                "type": "dir",
+                "name": "docs",
+                "path": "src/store/docs",
+                "interesting": true,
+                "children": [
+                  {
+                    "type": "file",
+                    "name": "nano-store.md",
+                    "path": "src/store/docs/nano-store.md",
+                    "ext": "md",
+                    "size": 8094
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "dir",
+            "name": "utils",
+            "path": "src/utils",
+            "interesting": true,
+            "children": [
+              {
+                "type": "dir",
+                "name": "api",
+                "path": "src/utils/api",
+                "interesting": true,
+                "children": [
+                  {
+                    "type": "file",
+                    "name": "debug.ts",
+                    "path": "src/utils/api/debug.ts",
+                    "ext": "ts",
+                    "size": 2281
+                  }
+                ]
+              },
+              {
+                "type": "dir",
+                "name": "timestamp",
+                "path": "src/utils/timestamp",
+                "interesting": true,
+                "children": [
+                  {
+                    "type": "file",
+                    "name": "timestamp.ts",
+                    "path": "src/utils/timestamp/timestamp.ts",
+                    "ext": "ts",
+                    "size": 2823
+                  },
+                  {
+                    "type": "file",
+                    "name": "useDevClock.ts",
+                    "path": "src/utils/timestamp/useDevClock.ts",
+                    "ext": "ts",
+                    "size": 2075
+                  }
+                ]
               }
             ]
           },
@@ -130,7 +199,7 @@
                 "name": "AppLayout.tsx",
                 "path": "src/app/AppLayout.tsx",
                 "ext": "tsx",
-                "size": 2856
+                "size": 3330
               }
             ]
           },
@@ -145,14 +214,14 @@
                 "name": "SettingsPage.tsx",
                 "path": "src/pages/SettingsPage.tsx",
                 "ext": "tsx",
-                "size": 589
+                "size": 670
               },
               {
                 "type": "file",
                 "name": "HomePage.tsx",
                 "path": "src/pages/HomePage.tsx",
                 "ext": "tsx",
-                "size": 669
+                "size": 762
               }
             ]
           },
@@ -173,14 +242,14 @@
                     "name": "MenuItem.tsx",
                     "path": "src/components/nav/MenuItem.tsx",
                     "ext": "tsx",
-                    "size": 931
+                    "size": 3270
                   },
                   {
                     "type": "file",
                     "name": "SideDrawer.tsx",
                     "path": "src/components/nav/SideDrawer.tsx",
                     "ext": "tsx",
-                    "size": 2227
+                    "size": 3145
                   }
                 ]
               },
@@ -282,7 +351,14 @@
                     "name": "DevPanel.tsx",
                     "path": "src/shared/dev/DevPanel.tsx",
                     "ext": "tsx",
-                    "size": 564
+                    "size": 2482
+                  },
+                  {
+                    "type": "file",
+                    "name": "ThreeDebug.tsx",
+                    "path": "src/shared/dev/ThreeDebug.tsx",
+                    "ext": "tsx",
+                    "size": 4915
                   },
                   {
                     "type": "file",
@@ -297,6 +373,13 @@
                     "path": "src/shared/dev/GlobalStatePanel.tsx",
                     "ext": "tsx",
                     "size": 1896
+                  },
+                  {
+                    "type": "file",
+                    "name": "DebugApiButton.tsx",
+                    "path": "src/shared/dev/DebugApiButton.tsx",
+                    "ext": "tsx",
+                    "size": 835
                   }
                 ]
               }
@@ -315,14 +398,14 @@
             "name": "structure.txt",
             "path": "memory/structure.txt",
             "ext": "txt",
-            "size": 1601
+            "size": 2938
           },
           {
             "type": "file",
             "name": "structure.json",
             "path": "memory/structure.json",
             "ext": "json",
-            "size": 6065
+            "size": 12275
           }
         ]
       },
@@ -338,7 +421,7 @@
         "name": "tsconfig.json",
         "path": "tsconfig.json",
         "ext": "json",
-        "size": 366
+        "size": 396
       },
       {
         "type": "dir",
